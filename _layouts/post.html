@@ -23,7 +23,7 @@ layout: default
 
 <p class="share">
   <a class="twitter" href="https://twitter.com/intent/tweet?text={{ site.domain_name }}{{ page.url }} - {{page.title}} by @{{ site.authorTwitter }}">Tweet</a>
-
+  |
   <a class="facebook" href="#" onclick="
     window.open(
       'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href),
@@ -55,7 +55,7 @@ layout: default
 {% endif %}
 
 <h1>Read more</h1>
-<ul>
+<ul style="margin-bottom: 75px;">
   {% for post in site.posts %}
   <li>
     <time class="dates">{{ post.date | date:"%b %d" }}</time>
@@ -64,6 +64,3 @@ layout: default
   {% endfor %}
 </ul>
 
-<!-- Archive post list -->
-  <!-- <ul id="post-list" class="archive readmore">
-  </ul> -->

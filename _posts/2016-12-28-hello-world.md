@@ -49,8 +49,7 @@ With Searchex I'm certain we can simplify and streamline a great deal.
 
 ## A New Project
 
-I believe that Searchex can provide real value to the Elixir community, and
-can be a great showcase for the Beam and GenStage.  I'm looking for
-collaborators and mentors. Let me know if you're interested in getting involved
-with Searchex!
+I expect Searchex to be useful for the Elixir community and to be a great
+showcase for the Beam and GenStage.  I'm looking for collaborators and mentors.
+Let me know if you're interested in getting involved!
 
