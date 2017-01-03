@@ -46,13 +46,13 @@
     <p>Over the past few weeks I made the first commits for Searchex, a full-text
 search engine written in pure Elixir.</p>
 
-<h2 id="untapped-technical-potential">Untapped Technical Potential</h2>
+<h2 id="technical-potential">Technical Potential</h2>
 
 <p>Initially this project was intended to be a throw-away for learning GenStage
 and Flow.</p>
 
-<p>Full-text search is an inherently parallel problem.  Elixir is the best
-platform I’ve seen for concurrent, fault-tolerant apps.  And there’s been
+<p>Full-text search can really benefit from concurrent processing.  Elixir is the
+best platform I’ve seen for concurrent, fault-tolerant apps.  And there’s been
 recent Elixir developments that are ideally suited for distributed search.
 <a href="http://elixir-lang.org/blog/2016/07/14/announcing-genstage">GenStage</a> /
 <a href="http://www.slideshare.net/Elixir-Meetup/experimentalflow-yurii-bodarev">Flow</a>
@@ -62,10 +62,9 @@ and potential application for process discovery.  <a href="http://www.phoenixfra
 Channels</a> have great potential
 for easily connecting I/O streams to a search engine.</p>
 
-<p>Now I believe that Elixir can be an amazing platform for a search
-engine.</p>
+<p>Elixir can be an amazing platform for a search engine.</p>
 
-<h2 id="opportunity-to-simplify">Opportunity to Simplify</h2>
+<h2 id="simplify-and-streamline">Simplify and Streamline</h2>
 
 <p>Elixir has the potential to reduce the number of components in the production
 stack.  Adrian Philipp highlighted this benefit in a <a href="http://adrian-philipp.com/post/why-elixir-has-great-potential">recent
@@ -73,18 +72,16 @@ article</a>.</p>
 
 <p><img src="/img/hello_world/stack.jpg" width="75%" alt="Erlang Technology Comparison" /></p>
 
-<p>But note sadly that this chart does not include a row for a Search Engine!  The
-Elixir developer still needs to use an External search engine (like
-ElasticSearch).</p>
+<p>Note that this chart does not include a row for a Search Engine!  The Elixir
+developer still needs to use an External search engine (like ElasticSearch).</p>
 
-<p>With that external dependency comes a host of extra labor:
-installing/configuring the service, designing/building/tuning the integration,
+<p>The external dependency requires extra labor and handholding.
+Installing/configuring the service, designing/building/tuning the integration,
 monitoring and managing in production.  Yuck.</p>
 
-<p>Look at this <a href="http://teamon.eu/2016/tuning-elixir-genstage-flow-pipeline-processing">blog post</a>
-from Tymon Tobloski, where he describes his efforts to integrate Elastic
-Search.  To me, the Elastic Search integration and tuning looks like a lot
-of work.</p>
+<p>This <a href="http://teamon.eu/2016/tuning-elixir-genstage-flow-pipeline-processing">blog post</a>
+from Tymon Tobloski describes his efforts to integrate Elastic Search.  The
+integration and tuning looks like a lot of work!</p>
 
 <p>With Searchex I’m certain we can simplify and streamline a great deal.</p>
 
