@@ -1,0 +1,25 @@
+.navbar-brand {
+  font-size: 26px;
+}
+
+h1 {
+  font-size: 22px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+.table-tiny th, .table-tiny td {
+  font-size: 14px;
+  padding:   2px;
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.spacer {
+  height: 10px;
+}

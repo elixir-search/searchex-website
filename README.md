@@ -1,2 +1,5 @@
-# searchex-website
-Website for Searchex
+# Home
+
+Searchex Website
+
+Built on Jekyll and Bootstrap

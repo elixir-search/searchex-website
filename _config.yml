@@ -1,0 +1,44 @@
+name: Searchex
+description: Elixir Search Engine
+meta_description: "Elixir Search Engine"
+
+aboutPage: true
+
+markdown: kramdown
+highlighter: rouge
+livereload: true
+
+gems: [jekyll-paginate]
+paginate: 20
+baseurl: /
+domain_name: 'http://searchex.org'
+google_analytics: 'UA-9997784-x'
+disqus: true
+disqus_shortname: 'teamon'
+
+# Details for the RSS feed generator
+url:            'http://searchex.org'
+author:         'Searchex'
+authorTwitter:  'akleak'
+
+permalink:       /:year/:title/
+
+defaults:
+    -
+        scope:
+            path: "" # empty string for all files
+            type: pages
+        values:
+            layout: default
+    -
+        scope:
+            path: "" # empty string for all files
+            type: posts
+        values:
+            layout: post
+    -
+        scope:
+            path: ""
+            type: drafts
+        values:
+            layout: post
