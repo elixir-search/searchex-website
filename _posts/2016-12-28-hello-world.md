@@ -7,10 +7,7 @@ search engine written in pure Elixir.
 
 ## Technical Potential
 
-Initially this project was intended to be a throw-away for learning GenStage
-and Flow.  
-
-Full-text search can really benefit from concurrent processing.  Elixir is the
+Full-text search really benefits from concurrent processing.  Elixir is the
 best platform I've seen for concurrent, fault-tolerant apps.  And there's been
 recent Elixir developments that are ideally suited for distributed search.
 [GenStage](http://elixir-lang.org/blog/2016/07/14/announcing-genstage) /
@@ -31,16 +28,16 @@ article](http://adrian-philipp.com/post/why-elixir-has-great-potential).
 
 <img src="/img/hello_world/stack.jpg" width="75%" alt="Erlang Technology Comparison">
 
-Note that this chart does not include a row for a Search Engine!  The Elixir
+Note that this chart does not include a line-item for a Search Engine!  The Elixir
 developer still needs to use an External search engine (like ElasticSearch).  
 
 The external dependency requires extra labor and handholding.
 Installing/configuring the service, designing/building/tuning the integration,
-monitoring and managing in production.  Yuck.
+monitoring and managing in production.  Yuck!
 
 This [blog post](http://teamon.eu/2016/tuning-elixir-genstage-flow-pipeline-processing)
 from Tymon Tobloski describes his efforts to integrate Elastic Search.  The
-integration and tuning looks like a lot of work!
+custom integration and tuning looks like a lot of work!
 
 With Searchex I'm certain we can simplify and streamline a great deal.
 
