@@ -12,7 +12,7 @@ gems: [jekyll-paginate]
 paginate: 20
 baseurl: /
 domain_name: 'http://searchex.org'
-google_analytics: 'UA-9997784-x'
+google_analytics: 'UA-89727814-1'
 disqus: true
 disqus_shortname: 'searchex'
 
