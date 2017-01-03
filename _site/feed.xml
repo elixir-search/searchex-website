@@ -7,16 +7,31 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Go Low or High?</title>
+        
+        
+          <description>&lt;p&gt;In the &lt;a href=&quot;/2017/searchex-v0_0_1/&quot;&gt;last post&lt;/a&gt;, we explained that the Searchex architecture is
+designed to be composable and to accomodate change.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Tue, 03 Jan 2017 00:00:00 -0800</pubDate>
+        <link>http://localhost:4000/2017/going-low-and-high/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/going-low-and-high/</guid>
+      </item>
+    
+      <item>
         <title>Searchex Version 0.0.1</title>
         
         
-          <description>&lt;p&gt;A few days ago I pushed Version 0.0.1 - the first release of Searchex.&lt;/p&gt;
+          <description>&lt;p&gt;Right before the New Year, you may have heard cheering and corks popping.  That
+was the sound of Searchex Version 0.0.1 being released!&lt;/p&gt;
 
 </description>
         
         <pubDate>Sun, 01 Jan 2017 00:00:00 -0800</pubDate>
-        <link>http://localhost:4000/2017/v0_0_1/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/v0_0_1/</guid>
+        <link>http://localhost:4000/2017/searchex-v0_0_1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/searchex-v0_0_1/</guid>
       </item>
     
       <item>

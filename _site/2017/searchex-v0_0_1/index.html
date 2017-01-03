@@ -7,7 +7,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <title>Hello World | Searchex</title>
+  <title>Searchex Version 0.0.1 | Searchex</title>
   <link rel="shortcut icon" href="/assets/images/favicon.ico">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" crossorigin="anonymous">
@@ -36,52 +36,85 @@
     <div class="container" style='margin-top: 75px;'>
       <article>
   <div>
-    <time datetime="2016-12-28 00:00:00 -0800">December 28, 2016</time>
-    <h1>Hello World</h1>
+    <time datetime="2017-01-01 00:00:00 -0800">January 1, 2017</time>
+    <h1>Searchex Version 0.0.1</h1>
   </div>
 
   
 
   <section>
-    <p>Over the past few weeks I made the first commits for Searchex, a full-text
-search engine written in pure Elixir.</p>
+    <p>Right before the New Year, you may have heard cheering and corks popping.  That
+was the sound of Searchex Version 0.0.1 being released!</p>
 
-<h2 id="technical-potential">Technical Potential</h2>
+<h2 id="minimum-viable-product">Minimum Viable Product</h2>
 
-<p>Full-text search really benefits from concurrent processing.  Elixir is the
-best platform I’ve seen for concurrent, fault-tolerant apps.  And there’s been
-recent Elixir developments that are ideally suited for distributed search.
-<a href="http://elixir-lang.org/blog/2016/07/14/announcing-genstage">GenStage</a> <a href="http://www.slideshare.net/Elixir-Meetup/experimentalflow-yurii-bodarev">Flow</a> is one.  Another is the Phoenix work on
-<a href="https://dockyard.com/blog/2016/03/25/what-makes-phoenix-presence-special-sneak-peek">CRDTs and Presence</a>, and potential application for process discovery.
-<a href="http://www.phoenixframework.org/docs/channels">Phoenix Channels</a> have great potential for easily connecting I/O
-streams to a search engine.</p>
+<p>This release really fits the definition of “Minimum Viable Product”.  Version
+0.0.1 is capable of indexing a few thousand documents from your hard drive.  It
+is usable for testing, but not production.  The <a href="https://github.com/elixir-search/searchex#roadmap">Searchex Roadmap</a>
+shows there is much to be done.</p>
 
-<p>Elixir can be an amazing platform for a search engine.</p>
+<p>But we’re off to a good start, and I’m certain we have a strong foundation for
+the work to come.  Here are some highlights…</p>
 
-<h2 id="simplify-and-streamline">Simplify and Streamline</h2>
+<h2 id="searchex-middleware">Searchex Middleware</h2>
 
-<p>Elixir has the potential to reduce the number of components in the production
-stack.  Adrian Philipp highlighted this benefit in a <a href="http://adrian-philipp.com/post/why-elixir-has-great-potential">recent article</a>.</p>
+<p>Full-text search relies on layers of dependencies:</p>
 
-<p><img src="/img/hello_world/stack.jpg" width="75%" alt="Erlang Technology Comparison" /></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>results &lt;- query &lt;- index &lt;- catalog &lt;- params &lt;- documents
+</code></pre>
+</div>
 
-<p>Note that this chart does not include a line-item for a Search Engine!  The Elixir
-developer still needs to use an External search engine (like ElasticSearch).</p>
+<p>At each step in the chain, you want parameter validation and cache
+generation.  The abstraction needs to be easily composable, to allow
+flexibility to swap components in and out of the chain.</p>
 
-<p>The external dependency requires extra labor and handholding.
-Installing/configuring the service, designing/building/tuning the integration,
-monitoring and managing in production.  Yuck!</p>
+<p>In searching for a solution I rewrote this middleware code like six times, not
+exaggerating.  At the end of the day, I realized that the best comparable for
+our needs is <a href="https://www.phoenixframework.org/v0.11.0/docs/understanding-plug">Plug</a>, the middleware used in the Phoenix framework.</p>
 
-<p>This <a href="http://teamon.eu/2016/tuning-elixir-genstage-flow-pipeline-processing">blog post</a> from Tymon Tobloski describes his efforts to integrate
-Elastic Search.  The custom integration and tuning looks like a lot of work!</p>
+<p>The Searchex middleware is called <code class="highlighter-rouge">Shake</code>. Here are the core differences
+between <code class="highlighter-rouge">Shake</code> and <code class="highlighter-rouge">Plug</code>:</p>
 
-<p>With Searchex I’m certain we can simplify and streamline a great deal.</p>
+<ul>
+  <li>Shake is optimized for validation and caching at every level</li>
+  <li>Instead of the <code class="highlighter-rouge">conn</code> object, Shake uses a <code class="highlighter-rouge">frame</code> struct optimized for
+search (<a href="https://hexdocs.pm/searchex/Shake.Frame.html#content">Frame documentation</a>)</li>
+</ul>
 
-<h2 id="a-new-project">A New Project</h2>
+<p>See the <a href="https://hexdocs.pm/searchex/Shake.html#content">Shake documentation</a> to learn more.</p>
 
-<p>I expect Searchex to address an important need in the Elixir community and to
-be a great showcase for the Beam and GenStage.  I’m looking for collaborators
-and mentors.  Let me know if you’re interested in getting involved!</p>
+<h2 id="lru-cache">LRU Cache</h2>
+
+<p>At every level of the build chain, we use LRU Caching with auto-expiring keys -
+inspired by Rails.  Instead of Redis as a cache store, we use ETS/DETS.  Cache
+keys are build from the content digest of the child layer.</p>
+
+<p>Caches improve execution speed by orders of magnitude.  The cache just works in
+the background - there’s nothing special that needs to be done by the end-user.</p>
+
+<p>Currently the LRU Cache handles Erlang terms, but not OTP processes.  In
+the future we will require an ‘LRU Registry’ to auto-expire process trees.</p>
+
+<h2 id="sharable-repos">Sharable Repos</h2>
+
+<p>Searchex uses a two-level organization for searchable assets: <code class="highlighter-rouge">Repos</code> -&gt;
+<code class="highlighter-rouge">Collections</code>.</p>
+
+<p>A <code class="highlighter-rouge">Repo</code> is simply a Git repo that has one or more <code class="highlighter-rouge">Collections</code>.  Each
+collection is defined by a <code class="highlighter-rouge">config</code> file, a yaml file which defined parameters
+for the collection - document file names, search paths, regular expressions,
+field definitions, etc.</p>
+
+<p>See the <a href="https://hexdocs.pm/searchex/Searchex.Config.html#content">Config Documentation</a> to learn more.  Browse an <a href="https://github.com/elixir-search/sample">example
+repo</a> on GitHub.</p>
+
+<p>The repo/collection system lays the foundation for distributed search, document
+sharing.</p>
+
+<h2 id="next-steps">Next Steps</h2>
+
+<p>Going forward, we’ll generally follow the <a href="https://github.com/elixir-search/searchex#roadmap">Searchex Roadmap</a>, adding
+new capabilities bit by bit.</p>
 
 
   </section>
@@ -90,7 +123,7 @@ and mentors.  Let me know if you’re interested in getting involved!</p>
 <hr/>
 
 <p class="share">
-  <a class="twitter" href="https://twitter.com/intent/tweet?text=http://searchex.org/2016/hello-world/ - Hello World by @SearchexNews">Tweet</a>
+  <a class="twitter" href="https://twitter.com/intent/tweet?text=http://searchex.org/2017/searchex-v0_0_1/ - Searchex Version 0.0.1 by @SearchexNews">Tweet</a>
   |
   <a class="facebook" href="#" onclick="
     window.open(
