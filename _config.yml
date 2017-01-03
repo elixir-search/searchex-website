@@ -14,12 +14,12 @@ baseurl: /
 domain_name: 'http://searchex.org'
 google_analytics: 'UA-9997784-x'
 disqus: true
-disqus_shortname: 'teamon'
+disqus_shortname: 'searchex'
 
 # Details for the RSS feed generator
 url:            'http://searchex.org'
 author:         'Searchex'
-authorTwitter:  'akleak'
+authorTwitter:  'SearchexNews'
 
 permalink:       /:year/:title/
 
