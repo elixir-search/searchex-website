@@ -30,7 +30,7 @@ Elixir has the potential to reduce the number of components in the production
 stack.  Adrian Philipp highlighted this benefit in a [recent
 article](http://adrian-philipp.com/post/why-elixir-has-great-potential).
 
-<img src="/img/hello_world/stack.jpg" style="width: 500px;" alt="Erlang Technology Comparison">
+<img src="/img/hello_world/stack.jpg" width="75%" alt="Erlang Technology Comparison">
 
 But note sadly that this chart does not include a row for a Search Engine!  The
 Elixir developer still needs to use an External search engine (like
