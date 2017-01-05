@@ -3,9 +3,9 @@ layout: default
 ---
 
 <article>
-  <div>
-    <time datetime="{{ page.date }}">{{ page.date | date:"%B %-d, %Y" }}</time>
+  <div class="posthdr">
     <h1>{{ page.title }}</h1>
+    <time datetime="{{ page.date }}">{{ page.date | date:"%B %-d, %Y" }}</time>
   </div>
 
   {% if page.source %}
@@ -19,8 +19,6 @@ layout: default
   </section>
 </article>
 
-<hr/>
-
 <p class="share">
   <a class="twitter" href="https://twitter.com/intent/tweet?text={{ site.domain_name }}{{ page.url }} - {{page.title}} by @{{ site.authorTwitter }}">Tweet</a>
   |
@@ -31,7 +29,6 @@ layout: default
       'width=626,height=436');
     return false;">Share</a>
 </p>
-
 
 {% if page.source %}
   <p class="source">
@@ -54,7 +51,7 @@ layout: default
   </section>
 {% endif %}
 
-<h1>Read more</h1>
+<h1 class="readmore">Read more</h1>
 <ul style="margin-bottom: 75px;">
   {% for post in site.posts %}
   <li>

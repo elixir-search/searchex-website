@@ -8,7 +8,11 @@ markdown: kramdown
 highlighter: rouge
 livereload: true
 
-gems: [jekyll-paginate]
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+gems: [jekyll-paginate, rouge]
 paginate: 20
 baseurl: /
 domain_name: 'http://searchex.org'

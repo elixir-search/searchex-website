@@ -204,6 +204,7 @@ PLATFORMS
 DEPENDENCIES
   github-pages
   jekyll-livereload
+  rouge
 
 BUNDLED WITH
    1.13.6
