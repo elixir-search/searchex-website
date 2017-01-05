@@ -7,17 +7,18 @@
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
-        <title>Go Low or High?</title>
+        <title>Next Milestone - Phoenix Integration</title>
         
         
-          <description>&lt;p&gt;In the &lt;a href=&quot;/2017/searchex-v0_0_1/&quot;&gt;last post&lt;/a&gt;, we explained that the Searchex architecture is
-designed to be composable and to accomodate change.&lt;/p&gt;
+          <description>&lt;p&gt;A few days ago I demonstrated Searchex at the &lt;a href=&quot;https://www.meetup.com/Erlang-SV/&quot;&gt;Silicon Valley Elixir
+Meetup&lt;/a&gt;.  We discussed options for future development, and the
+consensus was that Phoenix integration should be highest priority.&lt;/p&gt;
 
 </description>
         
-        <pubDate>Tue, 03 Jan 2017 00:00:00 -0800</pubDate>
-        <link>http://localhost:4000/2017/going-low-and-high/</link>
-        <guid isPermaLink="true">http://localhost:4000/2017/going-low-and-high/</guid>
+        <pubDate>Wed, 04 Jan 2017 00:00:00 -0800</pubDate>
+        <link>http://localhost:4000/2017/ecto-and-phoenix-integration/</link>
+        <guid isPermaLink="true">http://localhost:4000/2017/ecto-and-phoenix-integration/</guid>
       </item>
     
       <item>

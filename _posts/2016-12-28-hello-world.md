@@ -8,12 +8,10 @@ search engine written in pure Elixir.
 ## Technical Potential
 
 Full-text search really benefits from concurrent processing.  Elixir is the
-best platform I've seen for concurrent, fault-tolerant apps.  And there's been
-recent Elixir developments that are ideally suited for distributed search.
-[GenStage][genstage] [Flow][flow] is one.  Another is the Phoenix work on
-[CRDTs and Presence][crdt], and potential application for process discovery.
-[Phoenix Channels][channels] have great potential for easily connecting I/O
-streams to a search engine.
+best platform I know for concurrency, and there are great new features for
+distribution.  [GenStage][genstage] is one.  Another is the Phoenix work on
+[CRDTs and Presence][crdt].  And [Phoenix Channels][channels] have great
+potential for scalable live I/O streams.
 
 Elixir can be an amazing platform for a search engine.
 
