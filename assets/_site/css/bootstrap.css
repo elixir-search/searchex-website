@@ -1,0 +1,57 @@
+.navbar-brand {
+  font-size: 26px;
+}
+
+h1 {
+  font-size: 22px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+h2 {
+  font-size: 20px;
+  width: 100%;
+  border-bottom: 1px solid grey;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+.table-tiny th, .table-tiny td {
+  font-size: 14px;
+  padding:   2px;
+}
+
+.col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.spacer {
+  height: 10px;
+}
+
+time {
+  font-size: 10px;
+  margin-top: 0;
+}
+
+.posthdr {
+  width: 100%;
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
+}
+
+.share {
+  padding-top: 5px;
+  margin-top: 40px;
+  border-top: 1px solid black;
+  font-size: 12px;
+  text-align: center;
+}
+
+.readmore {
+  border-top: 1px solid black;
+  padding-top: 10px;
+}
