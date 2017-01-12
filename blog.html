@@ -2,10 +2,15 @@
 layout: default
 ---
 
-<h1>Blog</h1>
+<style>
+  h1 {margin-top: 5px;}
+  /* .hdr {background-color: lightgrey;} */
+  .hdr {background-color: #EEF;
+</style>
 
 <table class="table table-sm table-hover">
   <tbody>
+  <tr class='hdr'><td><h1>Articles</h1></td><td></td></tr>
   {% for post in site.posts %}
   <tr>
     <td>{{ post.date | date:"%b %d, %Y" }}</td>
@@ -14,4 +19,12 @@ layout: default
     </td>
   </tr>
   {% endfor %}
+  <tr class='hdr'><td><h1>Talks</h1></td><td></td></tr>
+  <tr>
+    <td>Jan 11, 2017</td>
+    <td>
+      SF Elixir Meetup
+      <a href="/assets/slides/1701_SearchexIntro.pdf">slides</a>
+    </td>
+  </tr>
 </table>
